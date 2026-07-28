@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="A private birthday storybook made with love for Devina."
+    />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#632f3f" />
+    <title>A Little Book for Devina</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="vault.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <main id="app">
+      <section class="lock-screen" id="lockScreen" aria-labelledby="lockTitle">
+        <div class="floating-blooms" aria-hidden="true">
+          <span>✦</span>
+          <span>♡</span>
+          <span>❀</span>
+          <span>♡</span>
+          <span>✦</span>
+        </div>
+
+        <div class="lock-layout">
+          <div class="cover-scene" aria-hidden="true">
+            <div class="book-shadow"></div>
+            <div class="closed-book">
+              <span class="cover-corner corner-one"></span>
+              <span class="cover-corner corner-two"></span>
+              <div class="cover-border">
+                <p class="cover-small">A LITTLE BOOK FOR</p>
+                <p class="cover-monogram">D</p>
+                <p class="cover-name">Devina</p>
+                <div class="cover-flourish">❦</div>
+                <p class="cover-date">ON YOUR SPECIAL DAY</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lock-panel">
+            <p class="eyebrow">A private chapter awaits</p>
+            <h1 id="lockTitle">Made for Devina,<br />with all my heart.</h1>
+            <p class="lock-copy">
+              Some stories are too special to leave open on the shelf.
+              Enter our secret word to begin.
+            </p>
+
+            <form id="unlockForm" class="unlock-form">
+              <label for="password">Secret word</label>
+              <div class="password-wrap">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="Our little secret"
+                  required
+                  aria-describedby="unlockStatus"
+                />
+                <button
+                  class="reveal-button"
+                  id="revealPassword"
+                  type="button"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                >
+                  Show
+                </button>
+              </div>
+              <button class="primary-button" id="unlockButton" type="submit">
+                <span>Open the book</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <p class="form-status" id="unlockStatus" role="status"></p>
+            </form>
+
+            <p class="tiny-note">
+              The book locks again whenever this page is refreshed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="book-app" id="bookApp" hidden aria-label="Birthday book">
+        <header class="book-header">
+          <button class="brand-button" id="goToCover" type="button">
+            <span class="brand-mark">D</span>
+            <span>
+              <strong id="brandName">Devina's Story</strong>
+              <small>A birthday keepsake</small>
+            </span>
+          </button>
+
+          <div class="header-actions">
+            <button class="text-button" id="celebrateButton" type="button">
+              <span aria-hidden="true">♡</span> Celebrate
+            </button>
+            <button class="text-button subtle" id="lockButton" type="button">
+              Lock
+            </button>
+          </div>
+        </header>
+
+        <nav
+          class="section-nav"
+          id="sectionNav"
+          aria-label="Book chapters"
+        ></nav>
+
+        <div class="reading-room">
+          <div class="book-wrap">
+            <button
+              class="page-arrow previous"
+              id="previousPage"
+              type="button"
+              aria-label="Previous page"
+            >
+              <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="open-book" id="openBook">
+              <div class="book-ribbon" aria-hidden="true"></div>
+              <div class="book-spine" aria-hidden="true"></div>
+              <article
+                class="book-page"
+                id="bookPage"
+                aria-live="polite"
+              ></article>
+            </div>
+
+            <button
+              class="page-arrow next"
+              id="nextPage"
+              type="button"
+              aria-label="Next page"
+            >
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <div class="page-meta">
+            <p id="pageCount">Page 1 of 1</p>
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-label="Book progress"
+              aria-valuemin="1"
+              aria-valuemax="1"
+              aria-valuenow="1"
+              id="progressTrack"
+            >
+              <span id="progressFill"></span>
+            </div>
+            <p class="swipe-hint">Swipe or use the arrow keys</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="celebration-layer" id="celebrationLayer" aria-hidden="true"></div>
+    <div class="toast" id="toast" role="status"></div>
+
+    <noscript>
+      <div class="noscript-message">
+        Please enable JavaScript to open Devina's birthday book.
+      </div>
+    </noscript>
+  </body>
+</html>
